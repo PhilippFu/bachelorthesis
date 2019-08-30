@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2"> 
+  <plugin-info> 
+    <description>${project.description}</description>  
+    <version>${project.version}</version>  
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>  
+    <param name="plugin-icon">images/pluginIcon.png</param>  
+    <param name="plugin-logo">images/pluginLogo.png</param> 
+  </plugin-info>  
+  <!-- add our i18n resource -->  
+  <resource type="i18n" name="i18n" location="bachelorthesis"/>  
+  <!-- add our web resources -->  
+  <web-resource key="bachelorthesis-resources" name="bachelorthesis Web Resources"> 
+    <dependency>com.atlassian.auiplugin:ajs</dependency>  
+    <resource type="download" name="bachelorthesis.css" location="/css/bachelorthesis.css"/>  
+    <resource type="download" name="bachelorthesis.js" location="/js/bachelorthesis.js"/>  
+    <resource type="download" name="images/" location="/images"/>  
+    <context>bachelorthesis</context> 
+  </web-resource>  
+  <web-panel name="AcceptanceTestResults" i18n-name-key="acceptance-test-results.name" key="acceptance-test-results" location="atl.jira.view.issue.right.context" weight="1000"> 
+    <description key="acceptance-test-results.description">The AcceptanceTestResults Plugin</description>  
+    <context-provider class="jira.userstory.acceptancetests.AcceptanceTestResults"/>  
+    <resource name="view" type="velocity" location="templates/acceptance-test-results.vm"/>
+	<label key="acceptance-test-results.title"/>
+  </web-panel>
+</atlassian-plugin>

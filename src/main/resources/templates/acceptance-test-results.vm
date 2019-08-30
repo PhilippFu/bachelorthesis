@@ -1,0 +1,23 @@
+#if($featureName)
+    <span style="font-weight:  bold; color: black;">Feature Name: $featureName<br><br></span>
+    <span style="font-weight:  bold; color: black;">Scenarios: <br></span>
+#end
+
+
+#set($counter = 0)
+#set($mapWithResults = $resultsMap)
+#set($mapWithScenarios = $scenarioMap)
+#set($data = $mapWithResults.keySet())
+#foreach ($issue in $data)
+
+    #if($mapWithResults.get($issue) == "passed")
+        <span style="font-weight:  bold; color: green;">$mapWithScenarios.get($counter)<br></span>
+    #elseif($mapWithResults.get($issue) == "undefined")
+        <span style="font-weight:  bold; color: orange;">$mapWithScenarios.get($counter)<br></span>
+    #elseif($mapWithResults.get($issue) == "failed")
+        <span style="font-weight:  bold; color: red;">$mapWithScenarios.get($counter)<br></span>
+    #end
+
+    #set($counter = $counter + 1)
+#end
+
