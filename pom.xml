@@ -19,11 +19,11 @@
             <version>${jira.version}</version>
             <scope>provided</scope>
             <exclusions>
-				<exclusion>
-					<groupId>jta</groupId>
-					<artifactId>jta</artifactId>
-				</exclusion>
-			</exclusions>
+		<exclusion>
+			<groupId>jta</groupId>
+			<artifactId>jta</artifactId>
+		</exclusion>
+	     </exclusions>
         </dependency>
         <!-- Add dependency on jira-core if you want access to JIRA implementation classes as well as the sanctioned API. -->
         <!-- This is not normally recommended, but may be required eg when migrating a plugin originally developed against JIRA 4.x -->
